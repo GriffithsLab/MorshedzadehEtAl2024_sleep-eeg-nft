@@ -1,4 +1,9 @@
-# MorshedzadehEtAl2024_sleep-eeg-nft
-Repository for the code supporting Morshedzadeh et al. (2024) - Corticothalamic modelling of sleep neurophysiology with applications to mobile EEG
+# Overview
+This repository contains the code and results related to the paper "Corticothalamic modelling of sleep neurophysiology with applications to mobile EEG" by Morshedzadeh, T., Kadak, K., Bastiaens, S. P., Oveisi, M. P., Momi, D., Wang, Z., Harita, S., Jaude, M. A., Aimone, C. A., Mann, S., Hill, S. L., & Griffiths, J. D. [https://doi.org/10.1101/2024.02.28.582655](https://doi.org/10.1101/2024.02.28.582655)
 
-[Contents to be populated soon]
+
+# Abstract
+Recent developments in mathematical modelling of EEG data enable estimation and tracking of otherwise-inaccessible neurophysiological parameters over the course of a night's sleep. Likewise, advancements in wearable electronics have enabled easier \& more affordable at-home collection of sleep EEG data. The convergence of these two advances, namely neurophysiological modelling for mobile sleep EEG, has the potential to significantly improve sleep assessments in research and the clinic. However, this subject area has received limited attention in existing literature. To address this, we used an established mathematical model of the corticothalamic system to analyze EEG power spectra from 5 datasets, spanning from in-lab, research-grade systems to at-home mobile EEG devices. In the present work, we compare the convergent and divergent features of the data and the estimated physiological model parameters. While data quality and characteristics differ considerably, several key patterns consistent with previous theoretical and empirical work are observed. During the transition from lighter to deeper NREM stages, i) the exponent of the aperiodic ($1/f$) spectral component is increased, ii) bottom-up thalamocortical drive is reduced, iii) corticocortical connection strengths are increased. This effect, which we observe in healthy individuals across all 5 datasets, is interestingly absent in individuals taking SSRI antidepressants, suggesting possible effects of ascending neuromodulatory systems on corticothalamic oscillations. Our results provide a proof-of-principle for the utility and feasibility of this physiological modelling-based approach to analyzing data from mobile EEG devices, providing a mechanistic measure of brain physiology during sleep at home or in the lab.
+
+# Content
+Guide to the code and content for the project and generating the figures. TO BE ADDED SOON.
