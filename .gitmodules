@@ -1,0 +1,6 @@
+[submodule "code/braintrak"]
+	path = code/braintrak
+	url = https://github.com/griffithslab/braintrak
+[submodule "code/corticothalamic-model"]
+	path = code/corticothalamic-model
+	url = https://github.com/griffithslab/corticothalamic-model
