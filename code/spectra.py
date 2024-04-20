@@ -8,16 +8,19 @@ import mne
 from IPython.display import Markdown, display, Latex, HTML
 from tqdm.notebook import tqdm,trange
 
-# define a class to take the epochs and hypnogram, transform into fitting material, fit, store results.abs
+# define a class to take the epochs and hypnogram, transform into fitting material, fit, store results.
 class Spectra:
-    def __init__(self, epochs, hypnogram):
+    def __init__(self, epochs, hypnogram, fname=None):
         self.epochs = epochs
         self.hypnogram = hypnogram
         self.epochs_inds = self.epochs.to_data_frame(index='epoch').index.unique().to_numpy()
         self.sfreq = int(self.epochs.info['sfreq'])
+        # in case fname is included, override the filename in epochs.info
+        if fname is None:
+            self.fname = epochs.info['filename']
         
 
-    def get_spectra(self, save=False)
+    def get_spectra(self, save=False):
         """_summary_
         """
         welchargs = dict(fmin=0.5, # arguments for Welch's method PSD calculation
@@ -73,7 +76,7 @@ class Spectra:
         return(tfs_file)        
         
 
-    def fit(self):
+    def fit(self, mode='local'):
         """_summary_
         """
         # fit the model
