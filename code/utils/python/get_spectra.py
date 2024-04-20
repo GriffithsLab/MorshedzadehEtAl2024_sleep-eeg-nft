@@ -8,40 +8,31 @@ import mne
 from IPython.display import Markdown, display, Latex, HTML
 from tqdm.notebook import tqdm,trange
 
-# define a class to read raw data, get spectra, and save spectra
-class Spectra:
-    def __init__(self, fname):
-        self.fname = fname
-        self.raw = self.read_raw(fname)
-        self.spectra = self.get_spectra()
-        self.save_spectra()
-    
-    def read_raw(self, fname):
-        raw = mne.io.read_raw_fif(fname)
-        return(raw)
+# define a class to take the epochs and hypnogram, transform into fitting material, fit, store results.abs
 
-def read_raw(fname):
-    raw = mne.io.read_raw_fif(fname)
-    return(raw)
 
-def get_epochs(raw, hypnogram, chan_choice, save=False, drop=False):
-    raw.set_annotations(hypnogram)
-    events, _ = mne.events_from_annotations(raw)
-    epochs = mne.Epochs(raw, events, event_id=None, tmin=0, tmax=30, baseline=None)
-    epochs_inds = epochs.to_data_frame(index='epoch').index.unique().to_numpy()
-    ext = os.path.splitext(raw.filenames[0])[1]
+# def read_raw(fname):
+#     raw = mne.io.read_raw_fif(fname)
+#     return(raw)
 
-    if drop: # drop epochs with std > 1, in case drop is True
-        epochs_clean = epochs.copy()
-        epochs_clean.load_data()
-        data = epochs_clean.get_data()[:,epochs.ch_names.index(chain_choice),:]
-        stdev = data.std()
-        bads = data.std(axis=1)>stdev
-        epochs_clean.drop(bads, reason='>1 x std', verbose=verbose)
-        epochs_clean_inds = epochs_clean.to_data_frame(index='epoch').index.unique().to_numpy()
-        return(epochs_clean, epochs_clean_inds)
-    else:
-        return(epochs, epochs_inds)
+# def get_epochs(raw, hypnogram, chan_choice, save=False, drop=False):
+#     raw.set_annotations(hypnogram)
+#     events, _ = mne.events_from_annotations(raw)
+#     epochs = mne.Epochs(raw, events, event_id=None, tmin=0, tmax=30, baseline=None)
+#     epochs_inds = epochs.to_data_frame(index='epoch').index.unique().to_numpy()
+#     ext = os.path.splitext(raw.filenames[0])[1]
+
+#     if drop: # drop epochs with std > 1, in case drop is True
+#         epochs_clean = epochs.copy()
+#         epochs_clean.load_data()
+#         data = epochs_clean.get_data()[:,epochs.ch_names.index(chain_choice),:]
+#         stdev = data.std()
+#         bads = data.std(axis=1)>stdev
+#         epochs_clean.drop(bads, reason='>1 x std', verbose=verbose)
+#         epochs_clean_inds = epochs_clean.to_data_frame(index='epoch').index.unique().to_numpy()
+#         return(epochs_clean, epochs_clean_inds)
+#     else:
+#         return(epochs, epochs_inds)
 
 
 # Functions
